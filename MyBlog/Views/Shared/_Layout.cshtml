@@ -1,50 +1,114 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyBlog</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MyBlog.styles.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - Hola</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/hola-master/css/base.css" />
+    <link rel="stylesheet" href="~/hola-master/css/vendor.css" />
+    <link rel="stylesheet" href="~/hola-master/css/main.css" />
+
+    <!-- JS (Head) -->
+    <script src="~/hola-master/js/modernizr.js"></script>
+    <script src="~/hola-master/js/pace.min.js"></script>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyBlog</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+
+<body id="top">
+
+    <!-- HEADER -->
+    @await Component.InvokeAsync("Head")
+
+    <!-- CONTENT -->
+    @RenderBody()
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="row">
+            <div class="col-full"> 
+                <div class="footer-logo">
+                    <a class="footer-site-logo" href="#0">
+                        <img src="~/images/logo.png" alt="Homepage" />
+                    </a>
+                </div>
+
+                <ul class="footer-social">
+                    <li><a href="#0"><i class="im im-facebook"></i><span>Facebook</span></a></li>
+                    <li><a href="#0"><i class="im im-twitter"></i><span>Twitter</span></a></li>
+                    <li><a href="#0"><i class="im im-instagram"></i><span>Instagram</span></a></li>
+                    <li><a href="#0"><i class="im im-behance"></i><span>Behance</span></a></li>
+                    <li><a href="#0"><i class="im im-pinterest"></i><span>Pinterest</span></a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="row footer-bottom">
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>© Hola 2017</span>
+                    <span>Design by <a href="https://www.styleshout.com/">Styleshout</a></span>
+                </div>
+
+                <div class="go-top">
+                    <a class="smoothscroll" href="#top">
+                        <i class="im im-arrow-up"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - MyBlog - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- PHOTOSWIPE BACKGROUND -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close"></button>
+                    <button class="pswp__button pswp__button--share"></button>
+                    <button class="pswp__button pswp__button--fs"></button>
+                    <button class="pswp__button pswp__button--zoom"></button>
+
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left"></button>
+                <button class="pswp__button pswp__button--arrow--right"></button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="preloader"><div id="loader"></div></div>
+
+    <!-- JS FILES -->
+    <script src="~/hola-master/js/jquery-3.2.1.min.js"></script>
+    <script src="~/hola-master/js/plugins.js"></script>
+    <script src="~/hola-master/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>
